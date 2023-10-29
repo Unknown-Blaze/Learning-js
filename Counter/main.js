@@ -1,19 +1,19 @@
-document.getElementById("increment").onclick = function(){
+document.getElementById("increment").onclick = () => {
     var val = Number(document.getElementById("num").innerHTML);
     val += 1;
     document.getElementById("num").innerHTML = String(val);
 }
-document.getElementById("decrement").onclick = function(){
+document.getElementById("decrement").onclick = () => {
     var val = Number(document.getElementById("num").innerHTML);
     val -= 1;
     document.getElementById("num").innerHTML = String(val);
 }
-document.getElementById("reset").onclick = function(){
+document.getElementById("reset").onclick = () => {
 
     document.getElementById("num").innerHTML = 0;
 }
 
-document.getElementById("submit").onclick = function(){
+document.getElementById("submit").onclick = () => {
 
     let val = document.getElementById("set").value;
     if (!isNaN(+val) && Boolean(val)){
