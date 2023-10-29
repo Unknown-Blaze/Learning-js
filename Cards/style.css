@@ -1,0 +1,58 @@
+img{
+    height: 70px;
+}
+img:hover{
+    transform: translateY(-10px);
+    transition: 0.1s;
+}
+
+.game {
+    width: 800px;
+    height: 800px;
+    position: relative;
+    border: 1px solid black;
+    text-align: center;
+  }
+  
+  .player1 {
+    position: absolute;
+    bottom: -20px;
+    right: 0;
+    width: 100%;
+    height: 20%;
+    /* background-color: green; */
+    
+  }
+  
+  .player2 {
+    position: absolute;
+    top: -160px;
+    right: -20px;
+    width: 100%;
+    height: 40%;
+    /* background-color: lightblue; */
+    transform: rotate(-90deg);
+    transform-origin: right;
+  }
+  
+  .player3 {
+    position: absolute;
+    top: -20px;
+    left: 0;
+    width: 100%;
+    height: 20%;
+    /* background-color: red; */
+    transform: rotate(180deg);
+  }
+  
+  .player4 {
+    position: absolute;
+    top: -200px;
+    left: -60px;
+    width: 100%;
+    height: 50%;
+    transform: rotate(90deg);
+    transform-origin: left;
+    /* background-color: brown; */
+    
+  }

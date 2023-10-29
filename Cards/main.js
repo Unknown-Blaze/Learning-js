@@ -1,27 +1,49 @@
 // Learning to shuffle an array (To create a card game, for example)
 
-let numbers = ['A', '2', '3', '4', '5', '6', '7',
-               '8', '9', '10', 'J', 'Q', 'K'];
+
+const numbers = ['2', '3', '4', '5', '6', '7',
+               '8', '9', '10', 'J', 'Q', 'K', 'A'];
         
-let suits = ['c', 'd', 'h', 's'];
+const suits = ['c', 'd', 'h', 's'];
 
-let cards = [];
+// Generate card image URLs for a deck of cards
+const img_suits = ["clubs", "diamonds", "hearts", "spades"];
 
+let deck = [];
+let cardImages = [];
+
+// Creating the deck
 numbers.forEach((number) => {
     suits.forEach((suit) => {
-        cards.push(number + suit);
+        deck.push(number + suit);
     });
 });
+
+// Creating the suits
+numbers.forEach(number => {
+    img_suits.forEach(suit => {
+        const imageUrl = `Card Images/${number}_of_${suit}.png`;
+        cardImages.push(imageUrl);
+    });
+});
+const cards = deck.map((card, index) => [card, cardImages[index]]);
+
 shuffle(cards);
 
 let players = [];
 deal(players, cards);
-
-document.getElementById("p1").innerHTML += players[0].join(' ');
-document.getElementById("p2").innerHTML += players[1].join(' ');
-document.getElementById("p3").innerHTML += players[2].join(' ');
-document.getElementById("p4").innerHTML += players[3].join(' ');
-
+console.log(players);
+for (let i = 1; i <= 4; i++){
+    const player = players[i-1].map(cards => cards[0]);
+    let hcp = countHCP(player);
+    document.getElementById(`hcp${i}`).innerHTML += hcp;
+    for (let j = 0; j < 13; j++){
+        let card = players[i-1][j];
+        document.getElementById(`p${i}`).innerHTML += card[0]+" ";
+        // Add card images to Player 1
+        addCardImagesToPlayer(`player${i}`, card[1]);
+    }
+}
 
 function shuffle(cards){
     let index = cards.length;
@@ -43,7 +65,7 @@ function sort(cards){
     let hearts = [];
     let spades = [];
     for (let i = 0; i < cards.length; i++){
-        switch (checkSuit(cards[i])){
+        switch (checkSuit(cards[i][0])){
             case ('c'):
                 clubs.push(cards[i]);
                 break;
@@ -60,17 +82,22 @@ function sort(cards){
     }
 
     // Now that it's sorted by suit, sort by number
-    clubs.sort((x, y) => getVal(x) - getVal(y));
-    diamonds.sort((x, y) => getVal(x) - getVal(y));
-    hearts.sort((x, y) => getVal(x) - getVal(y));
-    spades.sort((x, y) => getVal(x) - getVal(y));
+    clubs.sort((x, y) => getVal(x[0]) - getVal(y[0]));
+    diamonds.sort((x, y) => getVal(x[0]) - getVal(y[0]));
+    hearts.sort((x, y) => getVal(x[0]) - getVal(y[0]));
+    spades.sort((x, y) => getVal(x[0]) - getVal(y[0]));
 
-    return [...clubs, ...diamonds, ...hearts, ...spades];
+    return [...clubs, ...diamonds, ...spades, ...hearts];
 }
 
 function checkSuit(card){
     if (card[1] != '0') return card[1];
     return card[2];
+}
+
+function checkSuit_img(card){
+    if (card[1] != '0') return card[5];
+    return card[6];
 }
 
 function getVal(card){
@@ -100,4 +127,25 @@ function deal(players, cards){
     for (let i = 0; i < 4; i++){
         players[i] = sort(players[i]);
     }
+}
+
+// Function to add card images to a player's area
+function addCardImagesToPlayer(playerId, imageURL) {
+    const playerElement = document.getElementById(playerId);
+
+    // Create and add card images to the player's area
+    const cardImage = document.createElement('img');
+    cardImage.src = imageURL; 
+    cardImage.alt = 'Card'; 
+    playerElement.appendChild(cardImage);
+    
+}
+
+function countHCP(cards){
+    let sum = 0;
+    for (let i = 0; i < 13; i++){
+        let val = getVal(cards[i][0]) - 10
+        if (val > 0) sum += val;
+    }
+    return sum;
 }
