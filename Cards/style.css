@@ -1,6 +1,7 @@
 img{
     height: 70px;
 }
+
 img:hover{
     transform: translateY(-10px);
     transition: 0.1s;
@@ -12,6 +13,7 @@ img:hover{
     position: relative;
     border: 1px solid black;
     text-align: center;
+    font-weight: bold;
   }
   
   .player1 {
@@ -56,3 +58,11 @@ img:hover{
     /* background-color: brown; */
     
   }
+
+body{
+  background-color: brown;
+}
+.cardlist{
+  font-size: 18px;
+  font-weight: bold;
+}
