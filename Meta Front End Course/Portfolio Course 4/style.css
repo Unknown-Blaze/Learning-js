@@ -1,0 +1,170 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    max-width: 100rem;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+body{
+    margin: 1rem 0;
+    background-color: #0189D1;
+    background-image: url("logos/bgimage.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
+    background-size: 100% 100%;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.logo{
+    text-align: center;
+    width: 100%;
+
+}
+
+.logo img{
+    width: 8rem;
+    height: 4rem;
+}
+
+nav{
+    width: 50%;
+    border-radius: 20px;
+    margin: 0.5rem auto;
+}
+
+nav ul{
+    margin: 1rem;
+}
+
+nav li{
+    display: inline;
+    text-decoration: underline;
+    color: blue;
+}
+
+main {
+    flex: 1;
+    gap: 1rem;
+    display: flex;
+    flex-direction: column;
+
+  }
+.banner {
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+    margin: auto;
+    width: 100%;
+}
+.banner img{
+    display: block;
+    text-align: center;
+    width: 100%;
+    height: 10rem;
+    margin: auto;
+}
+.banner:hover{
+    background-color: #0189D1;
+    box-shadow: 5px 5px 25px black;
+    transition: 0.5s;
+    border: none;
+}
+  main section:nth-child(2) {
+    flex: 1;
+  }
+  
+  main section:nth-child(1) {
+    position: relative;
+    width: 100%;
+  }
+  main section:nth-child(3) img {
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+    object-position: top;
+  }
+
+.box {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background-size: 300%;
+    background-position: left;
+  
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 6rem;
+    user-select: none;
+  }
+
+  .box p{
+    font-size: 2rem;
+  }
+  
+
+
+  main section:nth-child(3) {
+    align-self: center;
+    margin-inline: 1rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    max-width: 50rem;
+    max-height: 25rem;
+  }
+
+  
+  #info {
+    font-size: 1.2rem;
+    max-width: 50rem;
+    background-color: darkblue;
+    color: white;
+    padding: 1rem;
+    border-radius: 1rem;
+    margin-top: 2rem;
+  }
+  #info:hover{
+    transform: scale(1.2);
+    background-color: #0189D1;
+    color: black;
+    box-shadow: 5px 5px 50px white;
+    transition: 0.2s;
+  }
+
+
+  .border {
+    padding: 1rem;
+    transition: 200ms;
+    border-radius: 1rem;
+    background-color: darkblue;
+    color: white;
+  }
+  .border:hover {
+    transform: scale(1.1);
+  }
+  .brand-card img {
+    width: 100%;
+    height: 7rem;
+    object-fit: cover;
+  }
+
+  footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20rem;
+    color: #ffffff;
+  }
+  footer div {
+    max-width: 50%;
+  }
+  footer img {
+    height: 3rem;
+    width: 14rem;
+  }
+
+

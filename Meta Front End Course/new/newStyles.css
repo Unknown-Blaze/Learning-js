@@ -1,0 +1,26 @@
+.form-check{
+    font-size: 2em;
+    width: auto;
+    height: 1.5em;
+}
+.form-check-input{
+    cursor: pointer;
+}
+
+#test{
+    padding: 10px;
+    height: 50px;
+    width: 250px;
+    margin: 10px;
+}
+
+#test:hover{
+    box-shadow: 5px 0px 25px black;
+    transition: 0.2s;
+}
+
+#test:active{
+    background-color: blue;
+    color: white;
+    transition: 0.1s;
+}
